@@ -1,3 +1,51 @@
+
+
 body{
-  background-color: pink;
+  background-color: #5E5768;
+  margin: 0;
+}
+
+header{
+  background-color: #F88379;
+  justify-content: space-around;
+  align-content: center;
+  display: flex;
+  padding: 5px;
+}
+
+.card{
+  align-items: center;
+  border-radius: 16px;
+  box-shadow: 50px;
+  display: flex;
+  flex-direction: column;
+  height: 256px;
+  margin: 8px;
+  width: 256px;
+
+  background-color: #58B09C;
+}
+
+.bookcontainer{
+  display: grid;
+  grid-template-columns: repeat(3,  1fr);
+  grid-template-rows: auto;
+}
+
+.modal{
+  width: 20rem;
+  background-color: antiquewhite;
+  border-radius: 12px;
+  height: 20rem;
+  position: fixed;
+  z-index: 10;
+  top: 15%;
+  left: 60%;
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+
+.hide{
+  display: none;
 }
