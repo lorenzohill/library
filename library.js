@@ -28,7 +28,7 @@ function addBookToLibrary() {
   let title = document.querySelector("#book").value
   let author = document.querySelector("#author").value
   let pageCount = document.querySelector("#pgCount").value
-  let isRead = document.querySelector("#isRead").value
+  let isRead = document.querySelector("#isRead").checked
 
   let book1 = new book(title,author,pageCount,isRead)
   let output = ("The book is " + book1.title + " by " + book1.author+ ". it is " +  book1.pageCount + " pages long.")
@@ -79,7 +79,7 @@ function test(title, author, pageCount, isRead) {
     let removeBtn = document.createElement("div")
     removeBtn.innerHTML+= "X"
     removeBtn.classList.add("remove")
-    removeBtn.addEventListener("click", function(){removeBook()})
+    removeBtn.addEventListener("click", function(){removeBook(index)})
     cardd.appendChild(removeBtn)
     
     let heading = document.createElement("h2")
@@ -111,13 +111,11 @@ function test(title, author, pageCount, isRead) {
   }
 }
 
-function removeBook() {
-  
+function removeBook(index) {
+  let removed = []
 console.log("Button Pressed")
-let rmButton = document.getElementById()
-console.log(rmButton.parentNode)
-let bookToRemove = rmButton.parentNode.id
-
+console.log(index)
+removed = myLibrary.splice(index, 1)
 test()
 
 }
