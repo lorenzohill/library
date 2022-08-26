@@ -60,10 +60,44 @@ function clearInputs() {
 }
 
 function test(title, author, pageCount, isRead) {
-  let cardd = document.createElement("div")
-
-
-  cardd.classList.add("card")
-  bookHolder.appendChild(cardd)
   
+  let container = document.querySelector(".bookcontainer")
+  container.innerHTML = null
+  
+  for (let index = 0; index < myLibrary.length; index++) {
+    
+    let bktitle = myLibrary[index].title
+    let bkauthor = myLibrary[index].author
+    let bkpageCount = myLibrary[index].pageCount
+    let bkisRead = myLibrary[index].isRead
+    
+    let cardd = document.createElement("div")
+  
+    let heading = document.createElement("h2")
+    heading.innerHTML = bktitle
+    cardd.appendChild(heading)
+  
+    let authorText = document.createElement("p")
+    authorText.innerHTML = "Author: " + bkauthor
+    cardd.appendChild(authorText)
+  
+    let pageCountText = document.createElement("p")
+    pageCountText.innerHTML = bkpageCount + " Pages"
+    cardd.appendChild(pageCountText)
+  
+    let isReadtext = document.createElement("p")
+    isReadtext.innerHTML = "Have I read it?"
+    cardd.appendChild(isReadtext)
+
+    let isReadBox = document.createElement("input")
+    isReadBox.innerHTML = bkisRead
+    isReadBox.type = "checkbox"
+    cardd.appendChild(isReadBox)
+  
+  
+  
+    cardd.classList.add("card")
+    bookHolder.appendChild(cardd)
+    
+  }
 }
