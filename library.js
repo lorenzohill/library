@@ -9,6 +9,8 @@ const addButton = document.querySelector(".addButton")
 addButton.addEventListener("click", function(){addBookToLibrary()})
 
 
+const removeButtonFunction = document.querySelectorAll(".remove")
+
 //Selectors
 
 const bookHolder = document.querySelector(".bookcontainer")
@@ -72,7 +74,14 @@ function test(title, author, pageCount, isRead) {
     let bkisRead = myLibrary[index].isRead
     
     let cardd = document.createElement("div")
-  
+    cardd.id = index
+
+    let removeBtn = document.createElement("div")
+    removeBtn.innerHTML+= "X"
+    removeBtn.classList.add("remove")
+    removeBtn.addEventListener("click", function(){removeBook()})
+    cardd.appendChild(removeBtn)
+    
     let heading = document.createElement("h2")
     heading.innerHTML = bktitle
     cardd.appendChild(heading)
@@ -100,4 +109,15 @@ function test(title, author, pageCount, isRead) {
     bookHolder.appendChild(cardd)
     
   }
+}
+
+function removeBook() {
+  
+console.log("Button Pressed")
+let rmButton = document.getElementById()
+console.log(rmButton.parentNode)
+let bookToRemove = rmButton.parentNode.id
+
+test()
+
 }
