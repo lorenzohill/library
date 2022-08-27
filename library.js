@@ -1,5 +1,3 @@
-console.log("JS library is Setup")
-
 let myLibrary = []
 
 const modalButton = document.querySelector(".modalButton")
@@ -31,12 +29,12 @@ function addBookToLibrary() {
   let isRead = document.querySelector("#isRead").checked
 
   let book1 = new book(title,author,pageCount,isRead)
-  let output = ("The book is " + book1.title + " by " + book1.author+ ". it is " +  book1.pageCount + " pages long.")
+  let output = ("New Book added! The book is " + book1.title + " by " + book1.author+ ". it is " +  book1.pageCount + " pages long.")
   document.querySelector(".word").innerHTML = (output)
 
   myLibrary.push(book1)
 
-  test()
+  updateLibrary()
 
   clearInputs()
 
@@ -57,11 +55,11 @@ function clearInputs() {
   title.value = null
   author.value = null
   pageCount.value = null
-  isRead.value = null
+  isRead.checked = null
 
 }
 
-function test(title, author, pageCount, isRead) {
+function updateLibrary() {
   
   let container = document.querySelector(".bookcontainer")
   container.innerHTML = null
@@ -98,12 +96,37 @@ function test(title, author, pageCount, isRead) {
     isReadtext.innerHTML = "Have I read it?"
     cardd.appendChild(isReadtext)
 
-    let isReadBox = document.createElement("input")
-    isReadBox.innerHTML = bkisRead
-    isReadBox.type = "checkbox"
-    cardd.appendChild(isReadBox)
-  
-  
+    let readbox = document.createElement("div")
+    readbox.classList.add("unread")
+    cardd.appendChild(readbox)
+
+
+    if (bkisRead == true) {
+
+      let readstatus = document.createElement("p")
+      readstatus.innerHTML = "Read"
+      readbox.appendChild(readstatus)
+
+          
+      let readstatusBtn = document.createElement("button")
+      readstatusBtn.innerHTML = "Unread"
+      readstatusBtn.addEventListener("click", function(){updateRead(index)})
+      readbox.appendChild(readstatusBtn)
+    
+
+    }else{
+
+      let readstatus = document.createElement("p")
+      readstatus.innerHTML = "Not Read"
+      readbox.appendChild(readstatus)
+
+          
+      let readstatusBtn = document.createElement("button")
+      readstatusBtn.addEventListener("click", function(){updateRead(index)})
+      readstatusBtn.innerHTML = "Read"
+      readbox.appendChild(readstatusBtn)
+
+    }
   
     cardd.classList.add("card")
     bookHolder.appendChild(cardd)
@@ -113,9 +136,17 @@ function test(title, author, pageCount, isRead) {
 
 function removeBook(index) {
   let removed = []
-console.log("Button Pressed")
-console.log(index)
 removed = myLibrary.splice(index, 1)
-test()
+updateLibrary()
 
+}
+
+function updateRead(index) {
+  if (!myLibrary[index].isRead) {
+    myLibrary[index].isRead = true
+  }else{
+    myLibrary[index].isRead = false
+  }
+  
+  updateLibrary()
 }
