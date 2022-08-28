@@ -1,5 +1,7 @@
 let myLibrary = []
 
+let test = "testing git"
+
 const modalButton = document.querySelector(".modalButton")
 modalButton.addEventListener("click", showModal)
 
