@@ -11,6 +11,24 @@ header{
   align-content: center;
   display: flex;
   padding: 5px;
+  border-radius: 0px 0px 30px 30px;
+  position: sticky;
+  top: 1px;
+  z-index: 10;
+
+}
+
+.modalButton {
+  background-color: #58B09C;
+  border-radius: 50px;
+  height: 5rem;
+  width: 5rem;
+  box-shadow: 4px 4px #3d796b;
+}
+
+.modalButton:hover {
+  background-color: #3d796b;
+  box-shadow: none;
 }
 
 .card{
@@ -23,6 +41,7 @@ header{
   margin: 8px;
   width: 256px;
   background-color: #58B09C;
+  box-shadow: 8px 8px #3d796b;
 }
 
 .bookcontainer{
@@ -32,17 +51,23 @@ header{
 }
 
 .modal{
-  width: 20rem;
+  align-items: center;
   background-color: antiquewhite;
-  border-radius: 12px;
-  height: 20rem;
-  position: fixed;
-  z-index: 10;
-  top: 15%;
-  left: 60%;
+  border-radius: 120px;
   display: flex;
   flex-direction: column;
+  height: 16rem;
+  left: 60%;
   margin: 10px;
+  position: fixed;
+  text-align: center;
+  top: 15%;
+  width: 20rem;
+  z-index: 10;
+}
+
+.modal > input{
+  width: 75%;
 }
 
 .hide{
